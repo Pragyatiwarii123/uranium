@@ -23,11 +23,7 @@ router.get('/test-me', function (req, res) {
 
 const arrayMonth =["jan","feb","march","apri","may","june","july","aug","sept","oct","nov","dec"]
 const arrayOdd = [1,3,5,7,9,11,13,15,17,19]
-const array1 = [1,2,3,4]
-const array2 = [2,3,4,5]
-const array3 = [3,4,5,6]
-const array4 = [4,5,6,7]
-const array5 = [5,6,7,8]
+const a1 = [1,2,3,4],a2 = [2,3,4,5], a3 = [3,4,5,6], a4 = [4,5,6,7], a5 = [5,6,7,8]
 const objectPair =  [["horror","The Shining"],["drama","Titanic"],["thriller","Shutter Island"],["fantasy","Pans Labyrinth"]]
 
   
@@ -35,11 +31,7 @@ router.get('/hello', function (req, res) {
     console.log('I am inside the second route handler')
     console.log(_.chunk(arrayMonth,4))
     console.log(_.tail(arrayOdd))
-    console.log(_.union([1,2,3,4],
-                [2,3,4,5],
-                [3,4,5,6],
-                [4,5,6,7],
-                [5,6,7,8]))
+    console.log(_.union(a1,a2,a3,a4,a5))
                 
     let obj = _.fromPairs(objectPair);
     console.log(obj)           //console.log(_.fromPairs(objectPair))
