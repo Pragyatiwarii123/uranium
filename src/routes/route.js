@@ -3,13 +3,30 @@ const logger = require('./logger')
 
 const router = express.Router();
 
-let array = ["pragya","aku","swati","vivek","golu","tej","shivu","fermi","richi","ayush"]
+let array = [1,2,3,4,5,7,8,9]
 
-router.get('/all candidates', function (req, res) {
-   
-    // console.log(array)
-    console.log('------------------')
-    res.send(array)
+router.get('/missingNumbers', function (req, res) {
+    let n= array.length +1
+    let sum=0
+    for(i=0;i<array.length;i++){
+        
+        sum = sum + array[i]
+    }
+    let missingNumber = (n*(n+1)/2) - sum
+    res.send([missingNumber])
+});
+let array2=[33,34,35,37,38,39]
+router.get('/Numbers', function (req, res) {
+    let n= array2.length 
+    a=33
+    d=1
+    let sum=0
+    for(i=0;i<array2.length;i++){
+        
+        sum = sum + array2[i]
+    }
+    let missingNumber = (n*(2*a+(n-1)*d)/2) - sum
+    res.send([missingNumber])
 });
 
 router.get('/candidates', function (req, res) {
