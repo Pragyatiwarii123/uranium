@@ -7,20 +7,23 @@ const createUser = async function (abcd, xyz) {
   //the second parameter is always the response
   let data = abcd.body;
   let savedData = await userModel.create(data);
-  console.log(abcd.newAtribute);
+  console.log(data.lastName);
   xyz.send({ msg: savedData });
 };
 
 const loginUser = async function (req, res) {
   let userName = req.body.emailId;
-  let password = req.body.password;
+  let password= req.body.password;
+  console.log(userName,password);
 
-  let user = await userModel.findOne({ emailId: userName, password: password });
+  let user = await userModel.findOne({ emailId: userName,password: password})
+  console.log(user)
   if (!user)
     return res.send({
       status: false,
       msg: "username or the password is not corerct",
-    });
+    })
+    //res.send({status:true,msg:user})
 
   // Once the login is successful, create the jwt token with sign function
   // Sign function has 2 inputs:
@@ -28,9 +31,12 @@ const loginUser = async function (req, res) {
   // The decision about what data to put in token depends on the business requirement
   // Input 2 is the secret
   // The same secret will be used to decode tokens
+//   console.log(user._id)
+//   let userId1= user._id.toString()
+//   console.log(userId1)
   let token = jwt.sign(
     {
-      userId: user._id.toString(),
+      userId: user._id.toString(),  //it must be string   user._id==obejctId
       batch: "thorium",
       organisation: "FUnctionUp",
     },
@@ -39,6 +45,7 @@ const loginUser = async function (req, res) {
   res.setHeader("x-auth-token", token);
   res.send({ status: true, data: token });
 };
+
 
 const getUserData = async function (req, res) {
   let token = req.headers["x-Auth-token"];
@@ -59,7 +66,7 @@ const getUserData = async function (req, res) {
     return res.send({ status: false, msg: "token is invalid" });
 
   let userId = req.params.userId;
-  let userDetails = await userModel.findById(userId);
+  let userDetails = await userModel.findById(userId);  //   if user ===value
   if (!userDetails)
     return res.send({ status: false, msg: "No such user exists" });
 
