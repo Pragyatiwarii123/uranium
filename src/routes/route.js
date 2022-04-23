@@ -17,12 +17,13 @@ router.post("/createPublisher", publisherController.createPublisher  )
 
 router.post("/createBook", bookController.createBook  )
 
- router.get("/getBooksData", bookController.getBooksData)
+ router.get("/getBooksData", bookController.getBooksData )
 
  //router.post("/getBooksWithAuthorDetails", bookController.getBooksWithAuthorDetails)
 
- router.put("/updateBookData", bookController.updateBookData  )
- router.put("/updateBookData1", bookController.updateBookData1 )
+  router.put("/updateBook", bookController.updateBookData  )
+
+  router.put("/updateBookData1", bookController.updatePrice )
 
 
 
