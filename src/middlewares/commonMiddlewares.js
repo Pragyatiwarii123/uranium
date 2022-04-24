@@ -17,22 +17,14 @@ const mid3= function ( req, res, next) {
 }
 
 const mid4= function ( req, res, next) {
-    const today=moment()
-    console.log(today.format("YYYY-MM-DD hh:mm:ss"))
+    const day=moment()
+    let ip=req.ip
+    let route = req.path
+    console.log(day.format("YYYY-MM-DD hh:mm:ss"),ip,route)
      next()  
 }
 
-const mid5= function ( req, res, next) {
-    let ip=req.ip
-    console.log(ip)
-    next()
-}
 
-const mid6= function ( req, res, next) {
-    let route = req.path
-        console.log(route)
-    next()
-}
 
 
 
@@ -40,6 +32,5 @@ module.exports.mid1= mid1
 module.exports.mid2= mid2
 module.exports.mid3= mid3
 module.exports.mid4= mid4
-module.exports.mid5= mid5
-module.exports.mid6= mid6
+
 

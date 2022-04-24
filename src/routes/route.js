@@ -49,7 +49,7 @@ const commonMW = require ("../middlewares/commonMiddlewares")
 
 
 
-router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3,commonMW.mid4,commonMW.mid5,commonMW.mid6, UserController.basicCode)
+router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3,commonMW.mid4, UserController.basicCode)
 
 
 
