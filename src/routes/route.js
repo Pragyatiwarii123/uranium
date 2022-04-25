@@ -49,7 +49,7 @@ const OrderController= require("../controllers/orderController")
 //router.get("/basicRoute", UserController.basicCode)
 router.post('/createUser',UserMiddleware.mid4, UserController.createUser)
 router.post('/createProduct', ProductController.createProduct)
-router.post('/createOrder', UserMiddleware.mid4, OrderController.createOrder)
+router.post('/createOrder', OrderController.createOrder)
 
 
 
